@@ -13,8 +13,4 @@ jobs:
     steps:
       - name: echo repository name
         shell: bash
-        run: echo ${{ github.repository }}
-
-      - name: echo repository name
-        shell: bash
-        run: echo ${{ github.repository }}
+        run: hello
