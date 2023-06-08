@@ -7,9 +7,6 @@ inputs:
 jobs:
   job0:
     name: job0
-    runs-on: ubuntu-latest
     steps:
     - name: echo repository name
-        shell: bash 
-        run: |
-          echo ${{ github.repository }}
+        run: echo ${{ github.repository }}
