@@ -1,16 +1,14 @@
 name: "action-demo"
-
 description: "an action demo."
-
 inputs:
   repository:
     description: "Repository name with owner. For example, actions/checkout"
     default: ${{ github.repository }}
-
-jobs:
-  job0:
-    name: job0
-    steps:
-      - name: echo repository name
-        shell: bash
-        run: hello
+    
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        echo hello
+        echo ${{ github.repository }}
