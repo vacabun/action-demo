@@ -8,6 +8,25 @@ inputs:
 runs:
   using: composite
   steps:
+      - name: shim-path
+      shell: bash
+      run: |
+        THIS_ACTION_PATH=$(perl -pe 's#/\./#/#g; s#//+#/#g; s#/$##g' <<< "$RAW_ACTION_PATH")
+        (
+          echo "THIS_ACTION_PATH=$THIS_ACTION_PATH"
+          echo "PATH=$THIS_ACTION_PATH/wrappers:$PATH"
+          echo "TASK=${{ inputs.custom_task || inputs.task }}"
+          echo "DO_CHECKOUT=${{ inputs.checkout && inputs.checkout != 'false' && !(inputs.custom_task || inputs.task) }}"
+          echo "FETCH_DEPTH=${{ !contains(inputs.check_commit_messages || inputs.check-commit-messages, 'commits') && '1' || '0' }}"
+          echo "USE_SARIF=${{ inputs.use_sarif || inputs.use-sarif }}"
+          echo "ALTERNATE_ENGINE=${{ (inputs.alternate_engine || inputs.alternate-engine) || '' }}"
+          echo "GH_ACTION_REPOSITORY=$GH_ACTION_REPOSITORY"
+          echo "GH_ACTION_REF=$GH_ACTION_REF"
+        ) >> "$GITHUB_ENV"
+      env:
+        GH_ACTION_REPOSITORY: ${{ github.action_repository || github.repository }}
+        GH_ACTION_REF: ${{ github.action_ref || github.ref_name }}
+        RAW_ACTION_PATH: ${{ github.action_path }} # Your action had a script injection problem and container path translation were broken due to another bug of actions/runner
     - shell: bash
       run: |
         echo hello
