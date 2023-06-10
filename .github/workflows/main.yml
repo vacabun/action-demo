@@ -1,0 +1,17 @@
+name: test
+
+on:
+  workflow_call:
+    inputs:
+      test:
+        description: "test"
+        default: "test"
+        required: false
+        type: string
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        run: |
+          echo "${{ github.workflow_ref }}"
