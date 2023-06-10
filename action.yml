@@ -11,6 +11,8 @@ runs:
     - name: shim-path
       shell: bash
       run: |
+        echo ${{ github.repository }}
+        echo ${{ github.ref }}
         echo "GH_ACTION_REPOSITORY=$GH_ACTION_REPOSITORY"
         echo "GH_ACTION_REF=$GH_ACTION_REF"
       env:
@@ -19,7 +21,3 @@ runs:
     - shell: bash
       run: |
         echo hello
-        echo ${{ github.repository }}
-        echo ${{ github.action_repository }}
-        echo ${{ github.action_ref }}
-        
