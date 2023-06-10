@@ -12,4 +12,4 @@ runs:
       run: |
         echo hello
         echo ${{ github.repository }}
-    - use: RT-Thread/pkgs-test/.github/workflows/pkgs-action.yml@main
+    - uses: RT-Thread/pkgs-test/.github/workflows/pkgs-action.yml@main
