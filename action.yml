@@ -8,7 +8,7 @@ inputs:
 runs:
   using: composite
   steps:
-      - name: shim-path
+    - name: shim-path
       shell: bash
       run: |
         THIS_ACTION_PATH=$(perl -pe 's#/\./#/#g; s#//+#/#g; s#/$##g' <<< "$RAW_ACTION_PATH")
