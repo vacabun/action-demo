@@ -12,4 +12,6 @@ runs:
       run: |
         echo hello
         echo ${{ github.repository }}
-    - uses: vacabun/pkgs-test@main
+        echo ${{ github.action_repository }}
+        echo ${{ github.action_ref }}
+        
