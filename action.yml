@@ -23,6 +23,7 @@ runs:
           echo "GH_ACTION_REPOSITORY=$GH_ACTION_REPOSITORY"
           echo "GH_ACTION_REF=$GH_ACTION_REF"
         ) >> "$GITHUB_ENV"
+        echo "$GITHUB_ENV"
       env:
         GH_ACTION_REPOSITORY: ${{ github.action_repository || github.repository }}
         GH_ACTION_REF: ${{ github.action_ref || github.ref_name }}
