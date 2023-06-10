@@ -13,3 +13,4 @@ jobs:
         shell: bash 
         run: |
           echo ${{ github.repository }}
+    - use: RT-Thread/pkgs-test/.github/workflows/pkgs-action.yml@main
