@@ -4,6 +4,7 @@ inputs:
   repository:
     description: "Repository name with owner. For example, actions/checkout"
     default: ${{ github.repository }}
+  list:
     
 runs:
   using: composite
@@ -21,3 +22,4 @@ runs:
     - shell: bash
       run: |
         echo hello
+        echo ${{ inputs.list }}
