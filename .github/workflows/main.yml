@@ -23,6 +23,8 @@ jobs:
           echo ${{ github.ref }}
           echo "GH_ACTION_REPOSITORY=$GH_ACTION_REPOSITORY"
           echo "GH_ACTION_REF=$GH_ACTION_REF"
+          echo ${{ inputs.list }}
         env:
           GH_ACTION_REPOSITORY: ${{ github.action_repository || github.repository }}
           GH_ACTION_REF: ${{ github.action_ref || github.ref_name }}
+      
