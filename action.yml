@@ -5,7 +5,9 @@ inputs:
     description: "Repository name with owner. For example, actions/checkout"
     default: ${{ github.repository }}
   list:
-    
+    description: "list"
+    required: false
+    type: string
 runs:
   using: composite
   steps:
