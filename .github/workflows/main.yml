@@ -8,6 +8,7 @@ on:
         default: "test"
         required: false
         type: string
+      list:
 jobs:
   test:
     runs-on: ubuntu-latest
