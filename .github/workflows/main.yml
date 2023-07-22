@@ -11,6 +11,7 @@ on:
       list:
         description: "list"
         required: false
+        type: string
 jobs:
   test:
     runs-on: ubuntu-latest
