@@ -9,6 +9,8 @@ on:
         required: false
         type: string
       list:
+        description: "list"
+        required: false
 jobs:
   test:
     runs-on: ubuntu-latest
